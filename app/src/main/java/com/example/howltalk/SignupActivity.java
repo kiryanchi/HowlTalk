@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.media.Image;
@@ -72,8 +73,10 @@ public class SignupActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 if(email.getText().toString() == null || name.getText().toString() == null || password.getText().toString() == null){
+                    Toast.makeText(SignupActivity.this, "이메일, 이름, 비밀번호는 필수 입력입니다.", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if(imageUri!=null){
 
                 FirebaseAuth.getInstance()
                         .createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString())
@@ -102,6 +105,11 @@ public class SignupActivity extends AppCompatActivity {
 
                             }
                         });
+
+                } else {
+                    Toast.makeText(SignupActivity.this, "사진을 꼭 넣어주세요!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
             }
         });

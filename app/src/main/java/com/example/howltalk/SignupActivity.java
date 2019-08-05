@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.howltalk.model.UserModel;
 import com.google.android.gms.tasks.OnCompleteListener;

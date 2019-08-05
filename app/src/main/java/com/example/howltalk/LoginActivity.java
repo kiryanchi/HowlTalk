@@ -37,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
 
         FirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
         firebaseAuth = FirebaseAuth.getInstance();
+        firebaseAuth.signOut(); // 자동로그인이 되어있는걸 푸는 것 같음
 
         String splash_background = FirebaseRemoteConfig.getString(getString(R.string.rc_color));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

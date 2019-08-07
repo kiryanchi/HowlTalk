@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.example.howltalk.model.UserModel;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -99,7 +100,12 @@ public class SignupActivity extends AppCompatActivity {
 
 
 
-                                        FirebaseDatabase.getInstance().getReference().child("users").child(uid).setValue(userModel);
+                                        FirebaseDatabase.getInstance().getReference().child("users").child(uid).setValue(userModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+                                                SignupActivity.this.finish();
+                                            }
+                                        });
                                     }
                                 });
 
